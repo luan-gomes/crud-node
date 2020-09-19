@@ -105,3 +105,5 @@ app.route('/professores/delete/:id').get((request, response) => {
     }
   );
 });
+
+//Fim das rotas relacionadas com os professores
