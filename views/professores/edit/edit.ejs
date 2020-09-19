@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Editar Cadastro de Professore</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <style>
+      input,
+      select {
+        margin-bottom: 10px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <h2>Editar Registro</h2>
+      <% data.forEach(function(details) { %>
+      <form action="/professores/edit/<%= details._id %>" method="POST">
+        <input
+          class="form-control"
+          type="text"
+          value="<%= details.nome %>"
+          name="nome"
+        />
+
+        <input
+          class="form-control"
+          type="date"
+          value="<%= details.dataNas %>"
+          name="dataNas"
+        />
+
+        <input
+          class="form-control"
+          type="text"
+          value="<%= details.endereco %>"
+          name="endereco"
+        />
+
+        <input
+          class="form-control"
+          type="email"
+          value="<%= details.email %>"
+          name="email"
+        />
+
+        <input
+          class="form-control"
+          type="text"
+          value="<%= details.ctps %>"
+          name="ctps"
+        />
+
+        <select class="form-control" name="titulo">
+          >
+          <option value="<%= details.ctps %>"><%= details.titulo %></option>
+          <option value="especialista">Especialista</option>
+          <option value="mestre">Mestre</option>
+          <option value="doutor">Doutor</option>
+          <option value="phd">PhD</option>
+        </select>
+
+        <input
+          class="form-control"
+          type="text"
+          value="<%= details.formacao %>"
+          name="formacao"
+        />
+
+        <input
+          class="form-control"
+          type="text"
+          value="<%= details.matricula %>"
+          name="matricula"
+        />
+
+        <br />
+        <button class="btn btn-secondary">
+          <a class="text-decoration-none text-reset" href="/professores/show"
+            >Todos</a
+          >
+        </button>
+        <button class="btn btn-primary" type="submit">Editar</button>
+      </form>
+      <% }) %>
+    </section>
+  </body>
+</html>

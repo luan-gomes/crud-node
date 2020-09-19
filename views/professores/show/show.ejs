@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Professores Cadastrados</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        table, button{font-size: 16px !important;}
+    </style>
+</head>
+<body>
+    <section class="container-sm">
+        <h2>Professores Cadastrados<h2>
+        <table class="table table-bordered table-sm table-hover">
+            <thead>
+                <tr>
+                    <td scope="row">Nome</td>
+                    <td>Nascimento</td>
+                    <td>Endereço</td>
+                    <td>E-mail</td>
+                    <td>CTPS</td>
+                    <td>Titulação</td>
+                    <td>Área</td>
+                    <td>Matrícula</td>
+                    <td>Ações</td>
+                </tr>
+            </thead>
+            <tbody>
+            <% data.forEach(function(details) { %>
+                <tr>
+                    <td scope="row"><%= details.nome %></td>
+                    <td><%= details.dataNas %></td>
+                    <td><%= details.endereco %></td>
+                    <td><%= details.email %></td>
+                    <td><%= details.ctps %></td>
+                    <td><%= details.titulo %></td>
+                    <td><%= details.formacao %></td>
+                    <td><%= details.matricula %></td>
+                    <td>
+                    <a class="text-decoration-none btn btn-success btn-sm" href="/professores/edit/<%= details._id %>">Editar</a>
+                    - 
+                    <a class="text-decoration-none btn btn-danger btn-sm" href="/professores/delete/<%= details._id %>">Excluir</a>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        <button class="btn btn-secondary"><a class="text-decoration-none text-reset" href="/professores">Voltar</a></button>
+    </section>
+</body>
+</html>
