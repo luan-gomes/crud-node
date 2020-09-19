@@ -107,3 +107,88 @@ app.route('/professores/delete/:id').get((request, response) => {
 });
 
 //Fim das rotas relacionadas com os professores
+
+//inicio de alunos
+app.get('/alunos/',(req,res)=>{
+  res.render('./alunos/index/index.ejs')//renderização do arquivo no navegador
+})
+
+app.get('/alunos/',(req,res)=>{
+  var cursor = db.colletion('alunos').find()
+})
+
+app.get('/alunos/show',(req, res)=>{
+  db.collection('alunos').find().toArray((err,results) =>{
+      if(err) return console.log(err)
+      res.render('./alunos/show/show.ejs',{data:results})
+  })
+})
+
+app.post('/alunos/show/', function(req, res){
+ db.collection('alunos').save(req.body,(err,result)=>{
+  if(err) return console.log(err)
+      console.log('salvo no banco') // mensagem de retorno do SERVIDOR
+      res.redirect('/alunos/show/') //caminho a ser direcionado apois o POST
+      db.collection('alunos').find().toArray((err,result)=>{
+          console.log(result)
+
+      })
+
+ })
+
+})
+
+app.route('/alunos/edit/:id').get((req, res) => {
+var id = req.params.id
+
+db.collection('alunos').find(ObjectId(id)).toArray((err, result) => {
+  if (err) return res.send(err)
+  res.render('./alunos/edit/edit.ejs', { data: result })
+})
+})
+.post((req,res)=>{
+var id = req.params.id
+var nome = req.body.nome //variavel do objeto
+var telefone = req.body.telefone //variavel do objeto
+var endereco = req.body.endereco //variavel do objeto
+var cpf = req.body.cpf //variavel do objeto
+var curso = req.body.curso //variavel do objeto
+var matricula = req.body.matricula //variavel do objeto
+var dataNas = req.body.dataNas //variavel do objeto
+db.collection('alunos').updateOne({
+      _id: ObjectId(id)
+  },
+  {
+      $set:{
+          nome:nome,
+          telefone:telefone,
+          endereco:endereco,
+          cpf:cpf,
+          curso:curso,
+          matricula:matricula,
+          dataNas:dataNas
+      }
+  },(err,result)=>{
+      if(err) return console.log(err)
+      console.log('banco atualizado com sucesso')
+      res.redirect('/alunos/show')
+      
+  }
+)   
+})
+
+app.route('/alunos/delete/:id').get((req, res)=>{
+var id = req.params.id
+db.collection('alunos').deleteOne(
+ {
+  _id: ObjectId(id)
+ },
+   (err, result)=> {
+      if(err) return console.log(err)
+      console.log('Deletado com sucesso')
+      res.redirect('/alunos/show')
+  })
+
+})
+
+//fim de alunos
