@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Editar usuário</title> 
+        
+    </head>
+    <body class="rgba-gradient">
+        <div class="container"> 
+        <h2 class="display-4">Editar</h2>
+        <button class="btn btn-light mt-1 mb-2"><a class="text-dark" href="/biblioteca/show">Voltar para Exibição</a></button>
+        <button class="btn btn-light mt-1 mb-2"><a class="text-dark" href="/biblioteca/">Voltar para Cadastro</a></button>
+        <% data.forEach(function(details){ %>
+            <form data-toggle="validator" action="/biblioteca/edit/<%= details._id %>" method="POST">
+            <div class="form-group">
+                <label for="isbn" class="text-dark" >ISBN (código internacional) - Formato: xxx-xx-xxxxx-xx-x</label>
+                <input class="form-control" type="text" value="<%= details.isbn %>" name="isbn" 
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}-[0-9]{2}-[0-9]{1}$"
+                data-minlength="13" data-error="Por favor, informe um ISBN Válido." required>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <label for="nome" class="text-dark">Nome</label>
+                <input class="form-control" type="text" value="<%= details.nome %>" name="nome" required>
+            </div>
+            <div class="form-group">
+                <label for="isbn" class="text-dark" >Autor</label>
+                <input class="form-control" type="text" value="<%= details.autor %>" name="autor">
+            </div>
+            <div class="form-group">
+                <label for="isbn" class="text-dark" >Gênero</label>
+                <input class="form-control" type="text" value="<%= details.genero %>" name="genero">
+            </div>
+            <div class="form-group">
+                <label for="isbn" class="text-dark" >Editora</label>
+                <input class="form-control" type="text" value="<%= details.editora %>" name="editora">
+            </div>
+            <div class="form-group">
+                <label for="isbn" class="text-dark" >Data de retirada</label>
+                <input class="form-control" type="date" value="<%= details.dataretirada %>" name="dataretirada" required>
+            </div>
+            <div class="form-group">
+                <label for="isbn" class="text-dark" >Previsão de entrega</label>
+                <input class="form-control" type="date" value="<%= details.previsaoentrega %>" name="previsaoentrega" required>
+            </div>
+            <div class="form-group">
+                <label for="isbn" class="text-dark" >Matrícula do solicitante</label>
+                <input class="form-control" type="text" value="<%= details.matricula %>" name="matricula" 
+                data-minlength="9" data-maxlength="9" required>
+                <div class="help-block with-errors"></div>
+            </div>
+            <button class="btn btn-success" type="submit">Salvar Alterações</button>
+            </form>
+            
+        <%}) %>
+    </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <style>
+            .rgba-gradient {
+            background: -moz-linear-gradient(45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+            background: -webkit-linear-gradient(45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+            background: linear-gradient(to 45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+        }
+            .bg{
+                background-color: rgba(255, 255, 255, 0.15);
+                border-radius: 10px;
+            }
+                </style>
+    </body>
+</html>

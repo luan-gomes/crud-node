@@ -192,3 +192,82 @@ db.collection('alunos').deleteOne(
 })
 
 //fim de alunos
+
+//Início de biblioteca
+app.get('/biblioteca/', function(req, res){
+  res.render('./biblioteca/home/index.ejs')
+})
+
+app.get('/biblioteca/show', function(req, res){
+  db.collection('biblioteca').find().toArray(
+      (err, results) =>{
+          if (err) return console.log("Erro!"+err)
+          res.render('./biblioteca/show/index.ejs', {data: results})
+      })
+})
+
+app.post('/biblioteca/show', function(req, res){
+  db.collection('biblioteca').save(req.body , (err, result) => {
+      if (err)
+      return console.log("Erro!"+err)
+      console.log("Salvou")
+      res.redirect('/biblioteca/show')
+  })
+})
+
+app.route('/biblioteca/edit/:id')
+.get((req,res) =>  {
+  var id = req.params.id
+  db.collection('biblioteca').find(ObjectId(id)).toArray(
+      (err, results) =>{
+          if (err) return console.log("Erro!"+err)
+          res.render('./biblioteca/edit', {data: results})
+      })
+})
+.post((req,res)=>  {
+  var id= req.params.id
+  var isbn= req.body.isbn
+  var nome = req.body.nome
+  var autor = req.body.autor
+  var genero = req.body.genero
+  var editora= req.body.editora
+  var dataretirada= req.body.dataretirada
+  var previsaoentrega= req.body.previsaoentrega
+  var matricula= req.body.matricula
+  db.collection('biblioteca').updateOne(
+      {
+          _id: ObjectId(id)
+      },
+      {
+          $set:{
+              isbn: isbn,
+              nome: nome,
+              autor: autor,
+              genero: genero,
+              editora: editora,
+              dataretirada: dataretirada,
+              previsaoentrega: previsaoentrega,
+              matricula: matricula
+          }
+      }, (err, result)=>{
+          if (err) return console.log("Erro!"+err)
+          res.redirect('/biblioteca/show')
+          console.log("Banco atualizado com sucesso!")
+      }
+  )
+})
+
+app.route('/biblioteca/delete/:id')
+.get((req,res) => {
+  var id= req.params.id
+  db.collection('biblioteca').deleteOne(
+      {
+          _id: ObjectId(id)
+      },        
+          (err, result) => {
+              if (err) return console.log("Erro!"+err)
+              console.log("Usuário deletado !")
+              res.redirect('/biblioteca/show')
+          }
+  )
+})

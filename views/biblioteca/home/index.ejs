@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Novo Empréstimo</title> 
+        <style>
+    .rgba-gradient {
+    background: -moz-linear-gradient(45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+    background: -webkit-linear-gradient(45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+    background: linear-gradient(to 45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+}
+    .bg{
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 10px;
+    }
+        </style>
+    </head>
+    <body class="rgba-gradient">
+        <div class="container"> 
+        <h2 class="display-4 text-center">Cadastro</h2>
+        <form id="cadastro" data-toggle="validator" class="bg p-2" action="./biblioteca/show" method="POST">
+            <div class="form-group"> 
+                <label for="isbn" class="text-dark">ISBN (código internacional) - Formato: xxx-xx-xxxxx-xx-x</label>
+                <input id="isbn" type="text" class="form-control" name="isbn" placeholder="Digite o ISBN"
+                pattern="[0-9]{3}-[0-9]{2}-[0-9]{5}-[0-9]{2}-[0-9]{1}$"
+                data-minlength="13" data-error="Por favor, informe um ISBN Válido.">
+    <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group"> 
+                <label for="nome" class="text-dark">Nome</label>
+                <input type="text" class="form-control" name="nome" placeholder="Digite o Nome" required>
+            </div>
+            <div class="form-group"> 
+                <label for="autor" class="text-dark">Autor</label>
+                <input type="text" class="form-control" name="autor" placeholder="Digite o Autor">
+            </div>
+            <div class="form-group"> 
+                <label for="genero" class="text-dark">Gênero</label>
+                <input type="text" class="form-control" name="genero" placeholder="Digite o Gênero">
+            </div>
+            <div class="form-group"> 
+                <label for="editora" class="text-dark">Editora</label>
+                <input type="text" class="form-control" name="editora" placeholder="Digite a Editora">
+            </div>
+            <div class="form-group"> 
+                <label for="dataretirada" class="text-dark">Data de Retirada</label>
+                <input type="date" class="form-control" name="dataretirada" required>
+            </div>
+            <div class="form-group"> 
+                <label for="previsaoentrega" class="text-dark">Previsão de entrega</label>
+                <input type="date" class="form-control" name="previsaoentrega" required>
+            </div>
+            <div class="form-group"> 
+                <label for="matricula" class="text-dark">Matrícula do solicitante</label>
+                <input type="text" class="form-control" name="matricula" 
+                data-minlength="9" required>
+                <div class="help-block with-errors"></div>
+            </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+        </form>
+    </div>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $('#cadastro').validator();
+        $('#isbn').mask('999-99-99999-99-9');
+    </script>
+    </body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>CRUD com MongoDB e Node.JS</title> 
+    </head>
+    <body class="rgba-gradient">
+        <div class="mt-2 container bg">
+        <h2 class="display-4">Listagem</h2>
+        <table class="table table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col" class="text-center mx-auto">
+                        ISBN (código internacional)
+                    </th>
+                    <th scope="col" class="text-center">
+                        Nome
+                    </th>
+                    <th scope="col" class="text-center">
+                        Autor
+                    </th>
+                    <th scope="col" class="text-center">
+                        Gênero
+                    </th>
+                    <th scope="col" class="text-center">
+                        Editora
+                    </th>
+                    <th scope="col" class="text-center">
+                        Data de retirada
+                    </th>
+                    <th scope="col" class="text-center">
+                        Previsão de entrega
+                    </th>
+                    <th scope="col" class="text-center">
+                        Matrícula
+                    </th>
+                    <th scope="col" class="text-center">
+                        
+                    </th>
+                    <th scope="col" class="text-center">
+                        
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <%  data.forEach( function(details) { %>
+                    <tr>
+                        <td scope="row"><%= details.isbn%></td>
+                        <td scope="row"><%= details.nome%></td>
+                        <td scope="row"><%= details.autor%></td>
+                        <td scope="row"><%= details.genero%></td>
+                        <td scope="row"><%= details.editora%></td>
+                        <td scope="row"><%= details.dataretirada%></td>
+                        <td scope="row"><%= details.previsaoentrega%></td>
+                        <td scope="row"><%= details.matricula%></td>
+                        <td ><a class="text-info" href="/biblioteca/edit/<%= details._id %>">Editar</a></td>
+                        <td ><a class="text-danger" href="/biblioteca/delete/<%= details._id %>">Excluir</a></td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+            <button class="btn btn-light mt-1 mb-2"><a class="text-dark"href="/biblioteca">Voltar</a></button>
+        </div>
+        </table>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <style>
+            .rgba-gradient {
+            background: -moz-linear-gradient(45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+            background: -webkit-linear-gradient(45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+            background: linear-gradient(to 45deg, rgba(198, 188, 188, 0.6), rgba(44, 37, 37, 0.69) 100%);
+        }
+            .bg{
+                background-color: rgba(255, 255, 255, 0.15);
+                border-radius: 10px;
+            }
+                </style>
+    </body>
+</html>
