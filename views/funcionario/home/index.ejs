@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pagina Inicial funcionario</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navegação</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(página atual)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/alunos">Alunos</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/biblioteca">Biblioteca</a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/funcionario">Funcionários</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/professores">Professores</a>
+          </li>
+    </div>
+  </nav>
+</head>
+
+
+
+    <div class="container">
+
+        <body>
+        <div class="form-group">
+            <h2>Cadastro funcionario</h2>
+        </div>
+            
+            <form action="/funcionario/show/index.ejs" method="POST">
+              <div class="form-group">
+                <label for="nome">Nome</label>
+                <input type ="text" name="nome"class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="sobrenome">Sobrenome</label>
+                <input type="text" name="sobrenome" class="form-control">
+            </div>
+               
+            <div class="form-group">
+                <label for="dataNasc">Data de Nascimento</label>
+                <input type="date"name="dataNasc"  class="form-control" >
+            </div>
+
+            <div class="form-group">
+                <label for="cpf">CPF</label>
+                <input type="text" name="cpf"  class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="telefone">Telefone</label>
+                <input type="tel" name="telefone" class="form-control" >
+            </div>
+                
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email"  class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="escolaridade">Grau de escolaridade</label>
+                <input type="text" name="escolaridade"  class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="funcao">Função</label>
+                <input type="text" name="funcao" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="admissao">Data de Admissão</label>
+                <input type="date" name="admissao" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="sInicial">Salario inicial</label>
+                <input type="text" name="sInicial"  class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="sFixo">Salario fixo</label>
+                <input type="text" name="sFixo"  class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="demissao">Data de Demissão</label>
+                <input type="date" name="demissao"  class="form-control">
+            </div>
+
+                <button type="submit">Cadastrar</button>
+
+
+            </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        </body>
+    </div>
+</html>

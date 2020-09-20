@@ -271,3 +271,90 @@ app.route('/biblioteca/delete/:id')
           }
   )
 })
+
+app.get('/funcionario/' , function(req, res){
+  res.render('./funcionario/home/index.ejs')
+})
+
+app.get('/funcionario/', (req,res) =>{
+  var cursor = db.collection('funcionario').find();
+})
+
+app.get('/funcionario/show', (req, res) =>{
+  db.collection('funcionario').find().toArray(
+      (err, results) => {
+          if (err) return console.log(err)
+          res.render('./funcionario/show/index.ejs', {data : results})
+      })
+
+})
+
+app.post('/funcionario/show', function(req, res){
+ db.collection('funcionario').save(req.body, (err, result)=>{
+     if(err) return console.log(err)
+  console.log('salvo no  banco de dado')
+  res.redirect('/funcionario/show')      
+ })
+})
+
+
+app.route('/funcionario/edit/:id').get((req, res) => {
+  var id = req.params.id
+  db.collection('funcionario').find(ObjectId(id)).toArray((err, result) => {
+      if(err)return res.send(err)
+      res.render('./funcionario/edit/index.ejs', {data: result})
+  })
+})
+.post((req, res) => {
+  var id = req.params.id;
+  var nome = req.body.nome;
+  var sobrenome = req.body.sobrenome;
+  var dataNasc = req.body.dataNasc;
+  var cpf = req.body.cpf;
+  var telefone = req.body.telefone;
+  var email = req.body.email;
+  var escolaridade = req.body.escolaridade;
+  var funcao = req.body.funcao;
+  var admissao = req.body.admissao;
+  var demissao = req.body.demissao;
+  var sInicial = req.body.sInicial;
+  var sFixo = req.body.sFixo;
+  db.collection('funcionario').updateOne(
+      {
+      _id: ObjectId(id)
+  },
+  {
+      $set: {
+          nome: nome,
+          sobrenome: sobrenome,
+          dataNasc: dataNasc,
+          cpf: cpf,
+          telefone: telefone,
+          email: email,
+          escolaridade: escolaridade,
+          funcao: funcao,
+          admissao: admissao,
+          demissao: demissao,
+          sInicial: sInicial,
+          sFixo: sFixo
+      }
+  }, (err , result) =>{
+      if(err) return res.send(err)
+      res.redirect('/funcionario/show')
+      console.log('banco atualizado com sucesso !')
+  }
+
+
+  )
+})
+
+app.route('/funcionario/delete/:id')
+.get((req, res) => {
+var id = req.params.id
+
+db.collection('funcionario').deleteOne({_id: ObjectId(id)}, (err, result) => {
+  if (err) return res.send(500, err)
+  console.log('Deletado do Banco de Dados!')
+  res.redirect('/funcionario/show')
+})
+})
