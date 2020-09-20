@@ -289,7 +289,7 @@ app.get('/funcionario/show', (req, res) =>{
 
 })
 
-app.post('/funcionario/show', function(req, res){
+app.post('/funcionario/show/index.ejs', function(req, res){
  db.collection('funcionario').save(req.body, (err, result)=>{
      if(err) return console.log(err)
   console.log('salvo no  banco de dado')
