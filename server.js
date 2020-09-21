@@ -20,6 +20,10 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get('/', function(req, res){
+    res.render('home')
+})
+
 //Rotas relacionadas com os professores
 
 app.get('/professores', (request, response) => {
