@@ -3,6 +3,34 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Edição de Disciplinas</title>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navegação</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+		  <span class="navbar-toggler-icon"></span>
+		</button>
+	  
+		<div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+		  <ul class="navbar-nav mr-auto">
+			<li class="nav-item active">
+			  <a class="nav-link" href="/">Home <span class="sr-only">(página atual)</span></a>
+			</li>
+			<li class="nav-item">
+			  <a class="nav-link" href="/alunos">Alunos</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/biblioteca">Biblioteca</a>
+			  </li>
+			<li class="nav-item">
+				<a class="nav-link" href="/disciplinas">Disciplinas</a>
+			  </li>
+			<li class="nav-item">
+				<a class="nav-link" href="/funcionario">Funcionários</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="/professores">Professores</a>
+			  </li>
+		</div>
+	  </nav>
 </head>
 <body>
 	<div>
@@ -48,5 +76,8 @@
 			</form>
 		<% }) %>
 	</div>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 </body>
 </html>
