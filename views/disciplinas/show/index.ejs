@@ -33,11 +33,11 @@
 	  </nav>
 </head>
 <body>
-	<h2>Lista de Disciplinas Cadastradas<h2>
-	<div>
-		<button><a href="/disciplinas">Voltar</a></button>
-		<table>
-			<thead>
+	<h2 class="font-weight-bold text-center">Lista de Disciplinas Cadastradas<h2>
+	<div class="container justify-content-center m-4">
+		<button class="btn btn-secondary btn-lg mb-2"><a class="text-decoration-none text-reset" href="/disciplinas">Voltar</a></button>
+		<table class="table table-bordered table-sm table-striped">
+			<thead class="table-secondary text-center text-nowrap">
 				<tr>
 					<td>Código</td>
 					<td>Nome</td>
@@ -50,7 +50,7 @@
 					<td>Ações<td/>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody class="text-center font-weight-normal text-nowrap">
 				<% data.forEach(function(details) { %>
 					<tr>
 						<td><%= details.codigo %></td>
@@ -61,7 +61,7 @@
 						<td><%= details.horario %></td>
 						<td><%= details.sala %></td>
 						<td><%= details.qtdalunos %></td>
-						<td><a href="/disciplinas/edit/<%= details._id %>">Editar</a> <a href="/disciplinas/delete/<%= details._id %>">Excluir</a></td>
+						<td><a class="btn btn-primary btn-lg text-decoration-none" href="/disciplinas/edit/<%= details._id %>">Editar</a> <a class="btn btn-danger btn-lg text-decoration-none" href="/disciplinas/delete/<%= details._id %>">Excluir</a></td>
 					</tr>
 				<% }) %>
 			</tbody>
