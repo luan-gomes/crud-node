@@ -362,3 +362,79 @@ db.collection('funcionario').deleteOne({_id: ObjectId(id)}, (err, result) => {
   res.redirect('/funcionario/show')
 })
 })
+
+// Início da rota de disciplinas
+app.get('/disciplinas/',(req,res)=>{
+  res.render('./disciplinas/home/index.ejs')
+})
+app.get('/disciplinas/', (req, res) => {
+  var cursor = db.collection('disciplinas').find()
+})
+app.get('/disciplinas/show', (req, res) => {
+  db.collection('disciplinas').find().toArray((err, results) => {
+      if (err) return console.log(err)
+          res.render('./disciplinas/show/index.ejs', { data: results })
+  })
+})
+
+app.post('/disciplinas/show', (req, res)=>{
+  db.collection('disciplinas').save(req.body, (err, result) => {
+      if (err) return console.log(err)
+          console.log('Salvo no Banco de Dados')
+          res.redirect('/disciplinas/show/')
+  })
+})
+
+app.route('/disciplinas/edit/:id').get((req, res) => {
+  var id = req.params.id
+  db.collection('disciplinas').find(ObjectId(id)).toArray(
+      (err, result) => {
+          if (err) return console.log(err)
+              res.render('./disciplinas/edit', {data: result})
+      })
+})
+.post((req, res) => {
+  var id = req.params.id
+  var codigo = req.body.codigo
+  var nome = req.body.nome
+  var professor = req.body.professor
+  var curso = req.body.curso
+  var turno = req.body.turno
+  var horario = req.body.horario
+  var sala = req.body.sala
+  var qtdalunos = req.body.qtdalunos
+  db.collection('disciplinas').updateOne(
+      {
+          _id: ObjectId(id)
+      },
+      {
+          $set: {
+              codigo: codigo,
+              nome: nome,
+              professor: professor,
+              curso: curso,
+              turno: turno,
+              horario: horario,
+              sala: sala,
+              qtdalunos: qtdalunos,
+          }
+      }, (err, result) => {
+          if (err) return console.log(err)
+              console.log('Atualizado no Banco de Dados!')
+              res.redirect('/disciplinas/show')
+      })
+})
+
+app.route('/disciplinas/delete/:id').get((req, res) => {
+  var id = req.params.id
+  db.collection('disciplinas').deleteOne(
+      {
+          _id: ObjectId(id)
+      },
+      (err, result) => {
+          if (err) return console.log(err)
+              console.log('Excluído do Banco de Dados!')
+              res.redirect('/disciplinas/show')
+  })
+})
+// Fim da rota de disciplinas

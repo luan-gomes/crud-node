@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>Listagem de Disciplinas</title>
+</head>
+<body>
+	<h2>Lista de Disciplinas Cadastradas<h2>
+	<div>
+		<button><a href="/disciplinas">Voltar</a></button>
+		<table>
+			<thead>
+				<tr>
+					<td>Código</td>
+					<td>Nome</td>
+					<td>Professor</td>
+					<td>Curso</td>
+					<td>Turno</td>
+					<td>Horário</td>
+					<td>Sala</td>
+					<td>Qtd. de Alunos</td>
+					<td>Ações<td/>
+				</tr>
+			</thead>
+			<tbody>
+				<% data.forEach(function(details) { %>
+					<tr>
+						<td><%= details.codigo %></td>
+						<td><%= details.nome %></td>
+						<td><%= details.professor %></td>
+						<td><%= details.curso %></td>
+						<td><%= details.turno %></td>
+						<td><%= details.horario %></td>
+						<td><%= details.sala %></td>
+						<td><%= details.qtdalunos %></td>
+						<td><a href="/disciplinas/edit/<%= details._id %>">Editar</a> <a href="/disciplinas/delete/<%= details._id %>">Excluir</a></td>
+					</tr>
+				<% }) %>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

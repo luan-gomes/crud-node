@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>Cadastro de Disciplinas</title>
+</head>
+<body>
+	<div>
+		<h2>Cadastrar Disciplina<h2>
+		<form action="/disciplinas/show" method="POST">
+			<div>
+				<input type="text" placeholder="Digite o código" name="codigo" required>
+			</div>
+			<div>
+				<input type="text" placeholder="Digite o nome" name="nome" required>
+			</div>
+			<div>
+				<input type="text" placeholder="Digite o professor" name="professor" required>
+			</div>
+			<div>
+				<input type="text" placeholder="Digite o curso" name="curso" required>
+			</div>
+			<div>
+				<input type="text" placeholder="Digite o turno" name="turno" required>
+			</div>
+			<div>
+				<input type="text" placeholder="Digite o horário" name="horario" required>
+			</div>
+			<div>
+				<input type="text" placeholder="Digite a sala" name="sala" required>
+			</div>
+			<div>
+				<input type="text" placeholder="Digite a quantidade de alunos" name="qtdalunos" required>
+			</div>
+			<div>
+				<button type="submit">Cadastrar</button>
+				<button><a href="/">Cancelar</a></button>
+				<button><a href="/disciplinas/show">Listar</a></button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

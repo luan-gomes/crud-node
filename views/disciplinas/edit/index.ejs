@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta charset="UTF-8">
+	<title>Edição de Disciplinas</title>
+</head>
+<body>
+	<div>
+		<h2>Editar Disciplina</h2>
+		<% data.forEach(function(details) { %>
+			<form action="/disciplinas/edit/<%= details._id %>" method="POST">
+				<div>
+					<label for="codigo">Código</label>
+					<input type="text" value="<%= details.codigo %>" name="codigo">
+				</div>
+				<div>
+					<label for="nome">Nome</label>
+					<input type="text" value="<%= details.nome %>" name="nome">
+				</div>
+				<div>
+					<label for="professor">Professor</label>
+					<input type="text" value="<%= details.professor %>" name="professor">
+				</div>
+				<div>
+					<label for="curso">Curso</label>
+					<input type="text" value="<%= details.curso %>" name="curso">
+				</div>
+				<div>
+					<label for="turno">Turno</label>
+					<input type="text" value="<%= details.turno %>" name="turno">
+				</div>
+				<div>
+					<label for="horario">Horário</label>
+					<input type="text" value="<%= details.horario %>" name="horario">
+				</div>
+				<div>
+					<label for="salafisica">Sala</label>
+					<input type="text" value="<%= details.sala %>" name="sala">
+				</div>
+				<div>
+					<label for="quantidadealunos">Quantidade de alunos</label>
+					<input type="text" value="<%= details.qtdalunos %>" name="qtdalunos">
+				</div>
+				<div>
+					<button type="submit">Salvar</button>
+					<button><a href="/disciplinas/show">Cancelar</a></button>
+				</div>
+			</form>
+		<% }) %>
+	</div>
+</body>
+</html>
