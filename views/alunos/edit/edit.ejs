@@ -37,9 +37,6 @@
 <body>
 
 <h2>Editar Registro</h2>
-      <div class="form-group">
-        <button class="btn btn-secondary btn-lg active"><a href="/alunos/show">Todos</a></button>
-      </div>
   <% data.forEach(function(details) { %>
     <form action="/alunos/edit/<%= details._id %>" method="POST">
 
@@ -53,6 +50,22 @@
               <input type="text" value="<%= details.telefone %>" name="telefone" class = "form-control" required>
             </div>
 
+            <div class="form-group">
+              <label for="Semestre">Escolha o Semestre:</label>
+              <select id="semestre" name="semestre" class = "form-control" required>
+                <option value="1° Semestre">1° Semestre</option>
+                <option value="2° Semestre">2° Semestre</option>
+                <option value="3° Semestre">3° Semestre</option>
+                <option value="4° Semestre">4° Semestre</option>
+                <option value="5° Semestre">5° Semestre</option>
+                <option value="6° Semestre">6° Semestre</option>
+                <option value="7° Semestre">7° Semestre</option>
+                <option value="8° Semestre">8° Semestre</option>
+                <option value="9° Semestre">9° Semestre</option>
+                <option value="10° Semestre">10° Semestre</option>
+              </select>
+            </div>
+            
             <div class="form-group">
              <label for="endereco">Endereço</label>
               <input type="text" value="<%= details.endereco %>" name="endereco" class = "form-control" required>
@@ -79,12 +92,21 @@
             </div>
 
     <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-lg btn-block">Editar</button>
+      <button type="submit" class="btn btn-primary btn-lg btn-block">Salvar</button>
     </div>
     
 
     </form>
   <% }) %>
+
+  <div class="form-group">
+    <button class="btn btn-secondary btn-lg btn-block" onclick="window.location.href = '/alunos/show'" > Listar <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M2.5 11.5A.5.5 0 0 1 3 11h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 7h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4A.5.5 0 0 1 3 3h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+    </svg> </button>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-secondary btn-lg btn-block" onclick="window.location.href = '/alunos'" > Voltar </button>
+  </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

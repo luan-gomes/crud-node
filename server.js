@@ -154,6 +154,7 @@ db.collection('alunos').find(ObjectId(id)).toArray((err, result) => {
 var id = req.params.id
 var nome = req.body.nome //variavel do objeto
 var telefone = req.body.telefone //variavel do objeto
+var semestre = req.body.semestre //variavel do objeto
 var endereco = req.body.endereco //variavel do objeto
 var cpf = req.body.cpf //variavel do objeto
 var curso = req.body.curso //variavel do objeto
@@ -167,6 +168,7 @@ db.collection('alunos').updateOne({
           nome:nome,
           telefone:telefone,
           endereco:endereco,
+          semestre:semestre,
           cpf:cpf,
           curso:curso,
           matricula:matricula,
