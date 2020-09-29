@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Navegação</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/">Home <span class="sr-only">(página atual)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/alunos">Alunos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/biblioteca">Biblioteca</a>
+                  </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/funcionario">Funcionários</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/professores">Professores</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/cursos">Cursos</a>
+                  </li>
+            </div>
+          </nav>
+</head>
+<body>
+    <h2>Editar</h2>
+    <div class="form-group">
+        <h2>Cadastro de Alunos<h2>
+     </div>
+
+    <form action="/cursos/show" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" name="nome" placeholder="Nome do Curso">
+        </div>
+        <div class="form-group">
+            <input type="text" name="modalidade"class="form-control" placeholder="Modalidade">
+        </div>
+        <div class="form-group">
+         <input type="text" name="turno" class="form-control" placeholder="Turno">
+        </div>
+        <div class="form-group">
+            <input type="text" name="valor" class="form-control" placeholder="Valor">
+        </div>
+        <div class="form-group">
+          <input type="text" name="area" class="form-control" placeholder="Área">
+      </div>
+        <div class="form-group">
+            <input type="text" name="especializacao" class="form-control" placeholder="Especialização">
+        </div>
+        <div class="form-group">
+             <input type="text" name="duracao" class="form-control" placeholder="Duração">
+            </div>
+        <div class="form-group">
+            <input type="text" name="coordenador" class="form-control" placeholder="Coordenador">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </div>  
+    </form> 
+</body>
+</html>

@@ -440,3 +440,93 @@ app.route('/disciplinas/delete/:id').get((req, res) => {
   })
 })
 // Fim da rota de disciplinas
+
+//Inicio de cursos
+
+app.get('/cursos/',(req, res) =>{
+  res.render('./cursos/home/index.ejs')
+})
+
+app.get('/cursos/', (req, res) => {
+  var cursor = db.collection('cursos').find();
+});
+
+app.get('/cursos/show/', (req, res) => {
+  db.collection('cursos').find().toArray(
+      (err, results) => {
+          if(err) return console.log(err)
+              res.render('./cursos/show/index.ejs', {data: results})
+      })
+})
+
+app.post('/cursos/show/', function(req, res){
+ db.collection('cursos').save(req.body, (err, result) => {
+      if(err) return console.log(err)
+      
+    console.log('Salvo com Sucesso')
+    res.redirect('/cursos/show/')
+    db.collection('cursos').find().toArray((err,result)=>{
+      console.log(result)
+
+  })
+ })
+})
+
+app.route('/cursos/edit/:id').get((req, res) => { 
+  var id = req.params.id
+  db.collection('cursos').find(Object(id)).toArray(
+      (err, result)=>{
+          if (err) return res.send(err)
+          res.render('./cursos/edit/index.ejs', {data: result})
+      })
+})
+.post((req, res) => {
+  var id = req.params.id
+  var nome = req.body.nome
+  var modalidade = req.body.modalidade
+  var turno = req.body.turno
+  var valor = req.body.valor
+  var area = req.body.area
+  var especializacao = req.body.especializacao
+  var duracao = req.body.duracao
+  var coordenador = req.body.coordenador
+  db.collection('cursos').updateOne(
+      {
+          _id: ObjectId(id)
+      },
+      {
+      $set: {
+          nome: nome,
+          modalidade: modalidade,
+          turno: turno,
+          valor: valor,
+          area: area,
+          especializacao: especializacao,
+          duracao: duracao,
+          coordenador: coordenador
+
+      }
+      }, (err, result)=>{
+          if(err) return res.send(err)
+          console.log('Banco atualizado com sucesso')
+          res.redirect('/cursos/show')
+      }
+  )
+})
+
+app.route('/cursos/delete/:id')
+.get((req, res) =>{
+  var id = req.params.id
+  db.collection('cursos').deleteOne(
+      {
+          _id: ObjectId(id)
+      },
+          (err, result) =>{
+              if(err) return console.log(err)
+              console.log('Valor removido com sucesso')
+              res.redirect('/cursos/show')
+          }
+  )
+})
+
+//fim de cursos
