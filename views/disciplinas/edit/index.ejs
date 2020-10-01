@@ -21,6 +21,9 @@
 				<a class="nav-link" href="/biblioteca">Biblioteca</a>
 			  </li>
 			<li class="nav-item">
+				<a class="nav-link" href="/cursos">Cursos</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="/disciplinas">Disciplinas</a>
 			  </li>
 			<li class="nav-item">
@@ -34,7 +37,7 @@
 </head>
 <body>
 	<div class="container">
-		<h2 class="font-weight-bold text-center">Editar Disciplina</h2>
+		<h2 class="font-weight-bold text-center mb-4">Editar Disciplina</h2>
 		<% data.forEach(function(details) { %>
 			<form action="/disciplinas/edit/<%= details._id %>" method="POST">
 				<div class="form-group">
@@ -69,8 +72,8 @@
 					<label for="quantidadealunos">Quantidade de alunos</label>
 					<input type="text" class="form-control" value="<%= details.qtdalunos %>" name="qtdalunos">
 				</div>
-				<div>
-					<button type="submit" class="btn btn-primary">Salvar</button>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary mr-1">Salvar</button>
 					<button class="btn btn-secondary"><a class="text-decoration-none text-reset" href="/disciplinas/show">Cancelar</a></button>
 				</div>
 			</form>

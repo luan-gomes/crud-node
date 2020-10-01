@@ -21,6 +21,9 @@
 				<a class="nav-link" href="/biblioteca">Biblioteca</a>
 			  </li>
 			<li class="nav-item">
+				<a class="nav-link" href="/cursos">Cursos</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="/disciplinas">Disciplinas</a>
 			  </li>
 			<li class="nav-item">
@@ -33,11 +36,11 @@
 	  </nav>
 </head>
 <body>
-	<h2 class="font-weight-bold text-center">Lista de Disciplinas Cadastradas<h2>
-	<div class="container justify-content-center m-4">
-		<button class="btn btn-secondary btn-lg mb-2"><a class="text-decoration-none text-reset" href="/disciplinas">Voltar</a></button>
-		<table class="table table-bordered table-sm table-striped">
-			<thead class="table-secondary text-center text-nowrap">
+	<h2 class="font-weight-bold text-center mb-4">Lista de Disciplinas Cadastradas</h2>
+	<div class="container">
+		<button class="btn btn-secondary mb-2"><a class="text-decoration-none text-reset" href="/disciplinas">Voltar</a></button>
+		<table class="table table-bordered table-sm table-striped table-hover text-center text-nowrap">
+			<thead class="table-secondary font-weight-bold">
 				<tr>
 					<td>Código</td>
 					<td>Nome</td>
@@ -47,10 +50,10 @@
 					<td>Horário</td>
 					<td>Sala</td>
 					<td>Qtd. de Alunos</td>
-					<td>Ações<td/>
+					<td>Ações</td>
 				</tr>
 			</thead>
-			<tbody class="text-center font-weight-normal text-nowrap">
+			<tbody>
 				<% data.forEach(function(details) { %>
 					<tr>
 						<td><%= details.codigo %></td>
@@ -61,7 +64,7 @@
 						<td><%= details.horario %></td>
 						<td><%= details.sala %></td>
 						<td><%= details.qtdalunos %></td>
-						<td><a class="btn btn-primary btn-lg text-decoration-none" href="/disciplinas/edit/<%= details._id %>">Editar</a> <a class="btn btn-danger btn-lg text-decoration-none" href="/disciplinas/delete/<%= details._id %>">Excluir</a></td>
+						<td><a class="btn btn-primary text-decoration-none mr-1" href="/disciplinas/edit/<%= details._id %>">Editar</a> <a class="btn btn-danger text-decoration-none" href="/disciplinas/delete/<%= details._id %>">Excluir</a></td>
 					</tr>
 				<% }) %>
 			</tbody>
