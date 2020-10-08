@@ -82,6 +82,7 @@
             <div class="form-group">
                 <label for="isbn" class="text-dark" >Matrícula do solicitante</label>
                 <input class="form-control" type="text" value="<%= details.matricula %>" name="matricula" 
+                pattern="[0-9]{9}$"
                 data-minlength="9" data-maxlength="9" required>
                 <div class="help-block with-errors"></div>
             </div>

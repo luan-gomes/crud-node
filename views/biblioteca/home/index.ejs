@@ -90,7 +90,8 @@
             <div class="form-group"> 
                 <label for="matricula" class="text-dark">Matrícula do solicitante</label>
                 <input type="text" class="form-control" name="matricula" 
-                data-minlength="9" required>
+                pattern="[0-9]{9}$"
+                data-minlength="9" data-maxlength="9" required>
                 <div class="help-block with-errors"></div>
             </div>
         <button type="submit" class="btn btn-success">Cadastrar</button>
